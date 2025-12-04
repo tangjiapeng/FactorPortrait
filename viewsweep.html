@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FactorPortrait: Controllable Portrait Animation via Disentangled Expression, Pose, and Viewpoint</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-family: Arial, sans-serif;
+    }
+
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+
+    caption {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+
+            <h1 class="title is-2 publication-title">FactorPortrait: Controllable Portrait Animation via
+              </br>Disentangled Expression, Pose, and Viewpoint </h1>
+            <!-- <div class="is-size-4 publication-authors">
+              <span class="author-block">
+                <a href="https://cvpr.thecvf.com/Conferences/2026" target="_blank" style="font-size: 120%;"><b>Anonymous
+                    Authors</b></a>
+              </span>
+            </div> -->
+
+            
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://tangjiapeng.github.io/">Jiapeng Tang</a><sup>1,2</sup>,</span>
+  
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=70T26KYAAAAJ&hl=en">Kai Li</a><sup>1</sup>,</span>
+  
+              <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=yXTk6HAAAAAJ&hl=zh-CN" target="_blank">Chengxiang Yin</a><sup>1</sup>,
+              </span>
+  
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=PTsnx5gAAAAJ&hl=en" target="_blank">Liuhao Ge</a><sup>1</sup>,
+              </span>
+
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=4VNGO5sAAAAJ&hl=zh-CN" target="_blank">Fei Jiang</a><sup>1</sup>,
+              </span>
+
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=K52c6wEAAAAJ&hl=en" target="_blank">Jiu Xu</a><sup>1</sup>,
+              </span>
+  
+              <span class="author-block">
+                <a href="https://niessnerlab.org/members/matthias_niessner/profile.html">Matthias Niessner</a><sup>2</sup>,
+              </span>
+
+              <span class="author-block">
+                <a href="https://scholar.google.de/citations?user=AliuYd0AAAAJ&hl=en">Christian Häne</a><sup>1</sup>,
+              </span>
+  
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=oLi7xJ0AAAAJ&hl=en">Timur Bagautdinov</a><sup>1</sup>,
+              </span>
+  
+              <span class="author-block">
+                <a href="https://egorzakharov.github.io/" target="_blank">Egor Zakharov</a><sup>1</sup>,</span>&nbsp;&nbsp;&nbsp;
+  
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=J98KVKQAAAAJ&hl=en" target="_blank">Peihong Guo</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Meta Reality Labs</span>
+              <span class="author-block"><sup>2</sup>Technical University of Munich</span>
+            </div>
+
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="./index.html" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-home"></i>
+                    </span>
+                    <span>Main Page</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="./phone.html" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-flask"></i>
+                    </span>
+                    <span>Phone Dataset</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="./studio.html" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-flask"></i>
+                    </span>
+                    <span>Studio Dataset</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="./viewsweep.html" id="active-button" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-flask"></i>
+                    </span>
+                    <span>ViewSweep Dataset</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="./dynamicsweep.html" id="active-button" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-flask"></i>
+                    </span>
+                    <span>DynamicSweep Dataset</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+
+  </div>
+  </div>
+  </section>
+
+  <hr />
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="has-text-left">
+        <h2 class="title is-3">ViewSweep Dataset</h2>
+        <div class="content">
+          <p>
+          This is a synthetic dataset created from Animatable Gaussian Avatars.
+          For each identity, we randomly select a facial expression and render 3D Gaussians along a camera trajectory,
+          obtaining a video stacked with multiple frames. The pose and expression stay static during the rendering process.
+        </p>
+        </div>
+      </div>
+
+      <div
+        style="display: flex; justify-content: space-around; text-align: center; margin-top: 10px; font-weight: bold;">
+        <span style="flex: 1;">Input</span>
+        <span style="flex: 1;">GAGA</span>
+        <span style="flex: 1;">CAP4D</span>
+        <span style="flex: 1;">HunyuanPortrait</span>
+        <span style="flex: 1;">Ours</span>
+        <span style="flex: 1;">GT</span>
+      </div>
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/fix_CWM486_20240216--0000_codec_CWM486_20240216--0000_codec_turntable_frame38_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/fix_DBZ441_20231115--0000_codec_DBZ441_20231115--0000_codec_turntable_frame12_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/fix_DIS984_20231219--0000_codec_DIS984_20231219--0000_codec_turntable_frame86_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/fix_GKI731_20231213--0000_codec_GKI731_20231213--0000_codec_turntable_frame28_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/fix_ITP456_20231205--0000_codec_ITP456_20231205--0000_codec_turntable_frame88_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/fix_OLE293_20240329--0000_codec_OLE293_20240329--0000_codec_turntable_frame47_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/fix_TEV406_20240103--0000_codec_TEV406_20240103--0000_codec_turntable_frame42_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/fix_VOG437_20230823--0000_codec_VOG437_20230823--0000_codec_turntable_frame41_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+      <div
+        style="display: flex; justify-content: space-around; text-align: center; margin-top: 10px; font-weight: bold;">
+        <span style="flex: 1;">Input</span>
+        <span style="flex: 1;">GAGA</span>
+        <span style="flex: 1;">CAP4D</span>
+        <span style="flex: 1;">HunyuanPortrait</span>
+        <span style="flex: 1;">Ours</span>
+        <span style="flex: 1;">GT</span>
+      </div>
+  </section>
+
+  <hr />
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

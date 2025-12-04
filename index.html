@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FactorPortrait: Controllable Portrait Animation via Disentangled Expression, Pose, and Viewpoint</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-family: Arial, sans-serif;
+    }
+
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+
+    caption {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+
+            <h1 class="title is-2 publication-title">FactorPortrait: Controllable Portrait Animation via
+              </br>Disentangled Expression, Pose, and Viewpoint </h1>
+            <!-- <div class="is-size-4 publication-authors">
+              <span class="author-block">
+                <a href="https://cvpr.thecvf.com/Conferences/2026" target="_blank" style="font-size: 120%;"><b>xxxxxx</b></a>
+              </span>
+            </div> -->
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://tangjiapeng.github.io/">Jiapeng Tang</a><sup>1,2</sup>,</span>
+  
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=70T26KYAAAAJ&hl=en">Kai Li</a><sup>1</sup>,</span>
+  
+              <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=yXTk6HAAAAAJ&hl=zh-CN" target="_blank">Chengxiang Yin</a><sup>1</sup>,
+              </span>
+  
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=PTsnx5gAAAAJ&hl=en" target="_blank">Liuhao Ge</a><sup>1</sup>,
+              </span>
+
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=4VNGO5sAAAAJ&hl=zh-CN" target="_blank">Fei Jiang</a><sup>1</sup>,
+              </span>
+
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=K52c6wEAAAAJ&hl=en" target="_blank">Jiu Xu</a><sup>1</sup>,
+              </span>
+  
+              <span class="author-block">
+                <a href="https://niessnerlab.org/members/matthias_niessner/profile.html">Matthias Niessner</a><sup>2</sup>,
+              </span>
+
+              <span class="author-block">
+                <a href="https://scholar.google.de/citations?user=AliuYd0AAAAJ&hl=en">Christian Häne</a><sup>1</sup>,
+              </span>
+  
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=oLi7xJ0AAAAJ&hl=en">Timur Bagautdinov</a><sup>1</sup>,
+              </span>
+  
+              <span class="author-block">
+                <a href="https://egorzakharov.github.io/" target="_blank">Egor Zakharov</a><sup>1</sup>,</span>&nbsp;&nbsp;&nbsp;
+  
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=J98KVKQAAAAJ&hl=en" target="_blank">Peihong Guo</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Meta Reality Labs</span>
+              <span class="author-block"><sup>2</sup>Technical University of Munich</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="./index.html" id="active-button" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-home"></i>
+                    </span>
+                    <span>Main Page</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="./phone.html" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-flask"></i>
+                    </span>
+                    <span>Phone Dataset</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="./studio.html" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-flask"></i>
+                    </span>
+                    <span>Studio Dataset</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="./viewsweep.html" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-flask"></i>
+                    </span>
+                    <span>ViewSweep Dataset</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="./dynamicsweep.html" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-flask"></i>
+                    </span>
+                    <span>DynamicSweep Dataset</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-shiba">
+            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/figures_video/teaser/fix_AUF026_20240328--0000_codec_AUF026_20240328--0000_codec_turntable_frame12.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-shiba">
+            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/figures_video/teaser/time_NCN782_20230829--0000_codec_NCN782_20230829--0000_codec_turntable_frame027.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-shiba">
+            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/figures_video/teaser/fix_LEX546_20240131--0000_codec_LEX546_20240131--0000_codec_turntable_frame43.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-shiba">
+            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/figures_video/teaser/time_RPM033_20231011--0000_codec_RPM033_20231011--0000_codec_turntable_frame040.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+
+
+
+          <div class="item item-chair-tp">
+            <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/figures_video/teaser/mgr_mgr_990576241541367_dynamic_range-of-motion-1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-fullbody">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/figures_video/teaser/col_20231026_1413_IFA961_401589_NECK_rotation_single.mp4" type="video/mp4">
+            </video>
+          </div>
+
+
+          <div class="item item-chair-tp">
+            <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/figures_video/teaser/mgr_mgr_991947444775636_dynamic_range-of-motion-1.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-fullbody">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/figures_video/teaser/col_20240205_1518_ZLQ232_401616_EMO_gif_empathy.mp4" type="video/mp4">
+            </video>
+          </div>
+
+
+        </div>
+
+        <h2 class="subtitle has-text-centered">
+          Given a single portrait image, <span class="dnerf">FactorPortrait</span> generates vivid
+          portrait animations featuring complex facial dynamics, and precise, flexible camera control.
+          Our method supports a wide range of controllable combinations,
+          including viewpoint, pose, and expression: (1) static frontal viewpoint with dynamic pose and expression;
+          (2) static novel viewpoints with dynamic pose and expression; (3) static pose and expression with dynamic viewpoint;
+          and (4) simultaneous dynamic pose, expression, and viewpoint.
+        </h2>
+
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <h2 class="title is-3">Abstract</h2>
+      <div class="content has-text-justified">
+        <p>
+          We introduce <span class="dnerf">FactorPortrait</span>, a video diffusion method for controllable portrait
+          animation that enables lifelike synthesis from disentangled control signals
+          of facial expressions, head movement, and camera viewpoints.
+          Given a single portrait image, a driving video, and camera trajectories,
+          our method animates the portrait by transferring facial expressions and head movements
+          from the driving video while simultaneously enabling novel view synthesis from arbitrary viewpoints.
+        </p>
+        <p>
+          We utilize a pre-trained image encoder to extract facial expression latents from the driving video as
+          control signals for animation generation. Such latents implicitly capture nuanced facial expression dynamics
+          with
+          identity and pose information disentangled, and they are efficiently inject the expression latents into the
+          video
+          diffusion transformer through our proposed expression controller.
+          For camera and head pose control, we employ Pl&uuml;cker ray maps and normal maps rendered from 3D body mesh
+          tracking.
+        </p>
+        <p>
+          To train our model, we curate a combinatio of real-world and synthetic dataset
+          containing diverse combinations of camera viewpoints, head poses, and facial expression dynamics.
+          Extensive experiments demonstrate that our method outperforms existing approaches in realism, expressiveness,
+          control accuracy, and view consistency.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- method. -->
+      <h2 class="title is-3">Method</h2>
+
+      <!-- <p>Relighting results </p> <br> -->
+      <div class="content has-text-justified">
+        <label class="label" style="width: 100%; vertical-jpg: middle;margin: 0; padding: 0;">
+          <img src="./static/images/overview.jpeg" border="0" class="zoom">
+        </label>
+        <p><b>Pipeline Overview.</b> Our method generates a video of the reference subject animated by the body pose and
+          facial expressions
+          from the driving images, while following the specified camera trajectory. The model consists of three
+          main components: (1) a condition fusion layer that combines noise maps, the reference image, and camera
+          pose annotations, and body mesh tracking as input to DiT; (2) an expression encoder that extracts and
+          aggregates per-frame expression codes from the driving images; and (3) a video diffusion model based
+          on Wan-DiT blocks with adaptive layer normalization (AdaLN), which applies scale and shift transformations
+          conditioned on the per-frame expression codes and frame-agnostic timestep embedding.</p>
+
+        <label class="label" style="width: 60%; vertical-jpg: middle;margin: 0; padding: 0;">
+          <img src="./static/images/condition_fusion.jpeg" border="0" class="zoom">
+        </label>
+        <p>
+          <b>Condition Fusion Layer.</b>
+          We extract reference image latents, ray maps, and normal video latents from
+          the template mesh to represent identity, viewpoint, and pose, respectively.
+          They are concatenated with noise latents as input to the diffusion model.
+        </p>
+      </div>
+
+
+      <h3 class="title is-4">Ablation Study</h3>
+      <div class="column is-full">
+        <div class="content has-text-left">
+          <p>We evaluate the importantance of ours designs by removing each of them from our pipeline :</p>
+          <ul style="margin-top: -20px;">
+            <li><b>C1</b>: Trained without the DynamicSweep dataset (videos containing both expression and camera
+              changes).</li>
+            <li><b>C2</b>: Without normal maps from body mesh reconstruction for head pose control.</li>
+            <li><b>C3</b>: Without expression latents; uses 2D landmarks for expression control instead.</li>
+          </ul>
+        </div>
+      </div>
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source
+          src="./static/figures_video/ablation/time_EOK752_20231113--0000_codec_EOK752_20231113--0000_codec_turntable_frame037_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source
+          src="./static/figures_video/ablation/time_XUD838_20230811--0000_codec_XUD838_20230811--0000_codec_spiral_frame029_comparison.mp4"
+          type="video/mp4">
+      </video>
+      <div
+        style="display: flex; justify-content: space-around; text-align: center; margin-top: 10px; font-weight: bold;">
+        <span style="flex: 1;">Input</span>
+        <span style="flex: 1;">C1</span>
+        <span style="flex: 1;">C2</span>
+        <span style="flex: 1;">C3</span>
+        <span style="flex: 1;">Ours final</span>
+        <span style="flex: 1;">GT</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- method. -->
+      <h2 class="title is-3">Related Works</h2>
+      <div class="column is-full">
+        <div class="content has-text-justified">
+          <p>
+            Check out the following works which also generates portrait animation from a single image:
+          </p>
+          <p>
+            <a href="https://github.com/Tencent-Hunyuan/HunyuanPortrait">HunyuanPortrait: Implicit Condition Control for Enhanced Portrait Animation</a> (video diffusion based talking face generation)
+          </p>
+          <p>
+            <a href="https://github.com/xg-chu/GAGAvatar">GAGAvatar: Generalizable and Animatable Gaussian Head Avatar </a> (feed-forward Gaussian head avatar reconstruction)
+          </p>
+          <p>
+            <a href="https://felixtaubner.github.io/cap4d/">CAP4D: Creating Animatable 4D Portrait Avatars with Morphable Multi-View Diffusion Models</a> (morphable multi-view diffusion models for head avatars)
+          </p>
+        </div>
+      </div>
+  </section>
+
+  <!--
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3">Acknowledgements</h2>
+        <div class="column is-full">
+          <div class="content has-text-justified">
+            <p>
+            </p>
+          </div>
+        </div>
+    </section>
+  -->
+
+  <hr />
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{,
+        author    = {Anonymous Authors},
+        title     = {{FactorPortrait: Controllable Portrait Animation via Disentangled Expression, Pose, and Viewpoint}},
+        booktitle = {arxiv},
+        year      = {2025},
+    }</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

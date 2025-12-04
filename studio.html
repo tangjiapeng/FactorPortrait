@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FactorPortrait: Controllable Portrait Animation via Disentangled Expression, Pose, and Viewpoint</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+
+            <h1 class="title is-2 publication-title">FactorPortrait: Controllable Portrait Animation via
+              </br>Disentangled Expression, Pose, and Viewpoint </h1>
+            <!-- <div class="is-size-4 publication-authors">
+              <span class="author-block">
+                <a href="https://cvpr.thecvf.com/Conferences/2026" target="_blank" style="font-size: 120%;"><b>Anonymous
+                    Authors</b></a>
+              </span>
+            </div> -->
+
+            
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://tangjiapeng.github.io/">Jiapeng Tang</a><sup>1,2</sup>,</span>
+  
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=70T26KYAAAAJ&hl=en">Kai Li</a><sup>1</sup>,</span>
+  
+              <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=yXTk6HAAAAAJ&hl=zh-CN" target="_blank">Chengxiang Yin</a><sup>1</sup>,
+              </span>
+  
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=PTsnx5gAAAAJ&hl=en" target="_blank">Liuhao Ge</a><sup>1</sup>,
+              </span>
+
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=4VNGO5sAAAAJ&hl=zh-CN" target="_blank">Fei Jiang</a><sup>1</sup>,
+              </span>
+
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=K52c6wEAAAAJ&hl=en" target="_blank">Jiu Xu</a><sup>1</sup>,
+              </span>
+  
+              <span class="author-block">
+                <a href="https://niessnerlab.org/members/matthias_niessner/profile.html">Matthias Niessner</a><sup>2</sup>,
+              </span>
+
+              <span class="author-block">
+                <a href="https://scholar.google.de/citations?user=AliuYd0AAAAJ&hl=en">Christian Häne</a><sup>1</sup>,
+              </span>
+  
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=oLi7xJ0AAAAJ&hl=en">Timur Bagautdinov</a><sup>1</sup>,
+              </span>
+  
+              <span class="author-block">
+                <a href="https://egorzakharov.github.io/" target="_blank">Egor Zakharov</a><sup>1</sup>,</span>&nbsp;&nbsp;&nbsp;
+  
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=J98KVKQAAAAJ&hl=en" target="_blank">Peihong Guo</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+              </span>
+            </div>
+  
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Meta Reality Labs</span>
+              <span class="author-block"><sup>2</sup>Technical University of Munich</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="./index.html" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-home"></i>
+                    </span>
+                    <span>Main Page</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="./phone.html" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-flask"></i>
+                    </span>
+                    <span>Phone Dataset</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="./studio.html" id="active-button" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-flask"></i>
+                    </span>
+                    <span>Studio Dataset</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="./viewsweep.html" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-flask"></i>
+                    </span>
+                    <span>ViewSweep Dataset</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="./dynamicsweep.html" class="external-link button is-normal is-rounded">
+                    <span class="icon">
+                      <i class="fas fa-flask"></i>
+                    </span>
+                    <span>DynamicSweep Dataset</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="has-text-left">
+        <h2 class="title is-3">Studio Dataset</h2>
+        <div class="content">
+          <p>
+            It is a multi-view video dataset captured in a professional studio, similar to <a
+              href="https://github.com/facebookresearch/ava-256" target="_blank">Ava-256</a>.
+            It captures diverse facial expressions, head movements, and gaze directions.
+            Each video is captured from a fixed viewpoint.
+            In this dataset, we want to generate static novel view videos with changes in pose and expression.
+          </p>
+        </div>
+      </div>
+
+      <div
+        style="display: flex; justify-content: space-around; text-align: center; margin-top: 10px; font-weight: bold;">
+        <span style="flex: 1;">Input</span>
+        <span style="flex: 1;">GAGA</span>
+        <span style="flex: 1;">CAP4D</span>
+        <span style="flex: 1;">HunyuanPortrait</span>
+        <span style="flex: 1;">Ours</span>
+        <span style="flex: 1;">GT</span>
+      </div>
+
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/col_20240109_1022_OEM468_403087_GAZ_09_neutral_wide_squint_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/col_20240201_1139_UPC002_401589_GAZ_02_neutral_wide_squint_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/col_20240212_1412_DRK347_401576_GAZ_09_neutral_wide_squint_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/col_20240223_1401_GBC119_401609_GAZ_08_neutral_wide_squint_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/col_20240229_1624_NRL839_403081_GAZ_02_neutral_wide_squint_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%"
+        style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; border-radius: 15px;">
+        <source src="./static/figures_video/self/col_20240315_1514_ZAZ716_401589_GAZ_07_neutral_wide_squint_comparison.mp4"
+          type="video/mp4">
+      </video>
+
+      <div
+        style="display: flex; justify-content: space-around; text-align: center; margin-top: 10px; font-weight: bold;">
+        <span style="flex: 1;">Input</span>
+        <span style="flex: 1;">GAGA</span>
+        <span style="flex: 1;">CAP4D</span>
+        <span style="flex: 1;">HunyuanPortrait</span>
+        <span style="flex: 1;">Ours</span>
+        <span style="flex: 1;">GT</span>
+      </div>
+
+    </div>
+  </section>
+
+  <hr />
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
